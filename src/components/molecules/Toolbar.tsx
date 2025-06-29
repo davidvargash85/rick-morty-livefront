@@ -17,6 +17,13 @@ export default function Toolbar({ onFilter }: FilterProps) {
     onFilter({ name, status, gender });
   };
 
+  const handleClear = () => {
+    setName("");
+    setStatus("");
+    setGender("");
+    onFilter({});
+  };
+
   const toggleExpanded = () => setExpanded((prev) => !prev);
 
   return (
@@ -79,13 +86,21 @@ export default function Toolbar({ onFilter }: FilterProps) {
             ]}
           />
 
-          <div className="w-full sm:w-auto sm:ml-auto">
+          <div className="flex gap-2 w-full sm:w-auto sm:ml-auto">
             <button
               onClick={handleApply}
               className="w-full sm:w-auto bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
               aria-label="Apply character filters"
             >
               Apply Filters
+            </button>
+
+            <button
+              onClick={handleClear}
+              className="w-full sm:w-auto bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-4 py-2 rounded hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-400"
+              aria-label="Clear all character filters"
+            >
+              Clear
             </button>
           </div>
         </div>
