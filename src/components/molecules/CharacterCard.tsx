@@ -19,7 +19,7 @@ export default function CharacterCard({
 
   return (
     <Link
-      href={`/${character.id}`}
+      href={`/character/${character.id}`}
       className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg focus:shadow-lg focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-50 dark:focus:ring-offset-gray-900 transition-all duration-200 focus:outline-none w-full max-w-[360px] mx-auto"
       aria-label={`View details for ${character.name}, ${character.status} ${character.species}`}
     >

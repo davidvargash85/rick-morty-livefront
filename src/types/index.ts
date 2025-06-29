@@ -19,6 +19,16 @@ export interface Character {
   created: string;
 }
 
+export interface Episode {
+  id: string,
+  name: string,
+  air_date: string,
+  episode: string,
+  characters: string[],
+  url: string,
+  created: string,
+}
+
 export interface Info {
   count: number;
   pages: number;
@@ -31,4 +41,5 @@ export interface ApiResponse<T> {
   results: T[];
 }
 
-export type CharactersResponse = ApiResponse<Character>; 
+export type CharactersResponse = ApiResponse<Character>;
+export type EpisodeResponse = ApiResponse<Episode>; 

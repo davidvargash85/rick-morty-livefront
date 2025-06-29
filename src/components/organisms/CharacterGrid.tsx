@@ -11,15 +11,15 @@ export default function CharacterGrid() {
   const { data, isLoading, error } = useCharacters(currentPage);
 
   if (isLoading) {
-          return (
-        <div className="space-y-8">
-          <div 
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"
-            role="status"
-            aria-label="Loading character grid, please wait"
-            aria-live="polite"
-            aria-busy="true"
-          >
+    return (
+      <div className="space-y-8">
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"
+          role="status"
+          aria-label="Loading character grid, please wait"
+          aria-live="polite"
+          aria-busy="true"
+        >
           {Array.from({ length: 20 }).map((_, index) => (
             <CardSkeleton key={index} />
           ))}
@@ -48,14 +48,14 @@ export default function CharacterGrid() {
     );
   }
 
-      return (
-      <div className="space-y-8">
-        <div 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"
-          role="grid"
-          aria-label={`Character grid showing ${data.results.length} characters on page ${currentPage} of ${data.info.pages}`}
-          aria-live="polite"
-        >
+  return (
+    <div className="space-y-8">
+      <div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"
+        role="grid"
+        aria-label={`Character grid showing ${data.results.length} characters on page ${currentPage} of ${data.info.pages}`}
+        aria-live="polite"
+      >
         {data.results.map((character, index) => (
           <CharacterCard
             key={character.id}
