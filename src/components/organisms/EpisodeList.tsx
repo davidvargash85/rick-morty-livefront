@@ -1,8 +1,8 @@
 "use client";
 
-import { useEpisodes } from '@/hooks/useEpisodes';
-import EpisodeCard from '@/components/molecules/EpisodeCard';
-import CardSkeleton from '@/components/atoms/CardSkeleton';
+import { useEpisodes } from "@/hooks/useEpisodes";
+import EpisodeCard from "@/components/molecules/EpisodeCard";
+import CardSkeleton from "@/components/atoms/CardSkeleton";
 
 export default function EpisodeList() {
   const { data, isLoading, error } = useEpisodes();

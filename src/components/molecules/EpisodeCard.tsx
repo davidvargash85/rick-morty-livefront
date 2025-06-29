@@ -9,7 +9,7 @@ interface Props {
 export default function EpisodeCard({ episode }: Props) {
   return (
     <Link
-      href={`episodes/${episode.id}`}
+      href={`episode/${episode.id}`}
       className="flex flex-col sm:flex-row items-start sm:items-center gap-4 p-4 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-md transition-shadow duration-200"
       aria-label={`Episode ${episode.name}, aired on ${episode.air_date}`}
     >

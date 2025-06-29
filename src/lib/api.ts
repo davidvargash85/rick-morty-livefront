@@ -19,6 +19,16 @@ export const api = {
     return response.json();
   },
 
+  getCharactersByUrls: async (urls: string[]): Promise<Character[]> => {
+    const ids = urls.map((url) => url.split('/').pop()).join(',');
+    const response = await fetch(`${BASE_URL}/character/${ids}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch characters')
+    };
+    const data = await response.json();
+    return Array.isArray(data) ? data : [data]; 
+  },
+
   getEspisodes: async (page: number = 1): Promise<EpisodeResponse> => {
     const response = await fetch(`${BASE_URL}/episode?page=${page}`);
     if (!response.ok) {
