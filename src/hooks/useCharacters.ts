@@ -1,13 +1,20 @@
 import { useQuery } from '@tanstack/react-query';
 import { api } from '@/lib/api';
-import { Character } from '@/types';
+import { Character, CharactersResponse } from '@/types';
+import qs from "query-string";
 
-export const useCharacters = (page: number = 1) => {
-  return useQuery({
-    queryKey: ['characters', page],
-    queryFn: () => api.getCharacters(page),
+export function useCharacters(page: number, filters: Record<string, string>) {
+  const query = qs.stringify({ page, ...filters });
+
+  return useQuery<CharactersResponse>({
+    queryKey: ["characters", page, filters],
+    queryFn: async () => {
+      const res = await fetch(`https://rickandmortyapi.com/api/character?${query}`);
+      if (!res.ok) throw new Error("Failed to fetch characters");
+      return res.json();
+    },
   });
-};
+}
 
 export const useCharacter = (id: string) => {
   return useQuery({
