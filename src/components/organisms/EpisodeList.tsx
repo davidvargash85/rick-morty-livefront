@@ -2,7 +2,7 @@
 
 import { useEpisodes } from "@/hooks/useEpisodes";
 import EpisodeCard from "@/components/molecules/EpisodeCard";
-import CardSkeleton from "@/components/atoms/CardSkeleton";
+import EpisodeCardSkeleton from "@/components/atoms/EpisodeCardSkeleton";
 
 export default function EpisodeList() {
   const { data, isLoading, error } = useEpisodes();
@@ -11,7 +11,7 @@ export default function EpisodeList() {
     return (
       <div className="space-y-4">
         {Array.from({ length: 10 }).map((_, i) => (
-          <CardSkeleton key={i} />
+          <EpisodeCardSkeleton key={i} />
         ))}
       </div>
     );

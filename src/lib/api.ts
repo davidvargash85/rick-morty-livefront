@@ -26,7 +26,7 @@ export const api = {
       throw new Error('Failed to fetch characters')
     };
     const data = await response.json();
-    return Array.isArray(data) ? data : [data]; 
+    return Array.isArray(data) ? data : [data];
   },
 
   getEspisodes: async (page: number = 1): Promise<EpisodeResponse> => {
