@@ -10,7 +10,7 @@ import Toolbar from "@/components/molecules/Toolbar";
 export default function CharacterGrid() {
   const [currentPage, setCurrentPage] = useState(1);
   const [filters, setFilters] = useState<Record<string, string>>({});
-  const { data, isLoading, error } = useCharacters(currentPage, filters);
+  const { data, isLoading, error } = useCharacters(filters, currentPage);
 
   const handleFilterChange = (newFilters: Record<string, string>) => {
     setCurrentPage(1); // Reset to page 1 when filters change

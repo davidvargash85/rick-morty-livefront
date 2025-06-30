@@ -3,16 +3,18 @@ import { api } from '@/lib/api';
 import { Character, CharactersResponse } from '@/types';
 import qs from "query-string";
 
-export function useCharacters(page: number, filters: Record<string, string>) {
+// contains hooks for characters ... 
+// logic is divided into fetch functions on the api folder
+// and hooks with react-query in this file
+
+export function useCharacters(filters: Record<string, string>, page: number = 1) {
   const query = qs.stringify({ page, ...filters });
+
+  console.log('query', query);
 
   return useQuery<CharactersResponse>({
     queryKey: ["characters", page, filters],
-    queryFn: async () => {
-      const res = await fetch(`https://rickandmortyapi.com/api/character?${query}`);
-      if (!res.ok) throw new Error("Failed to fetch characters");
-      return res.json();
-    },
+    queryFn: () => api.getCharacters(query)
   });
 }
 

@@ -3,8 +3,8 @@ import { Character, CharactersResponse, Episode, EpisodeResponse } from '@/types
 const BASE_URL = 'https://rickandmortyapi.com/api';
 
 export const api = {
-  getCharacters: async (page: number = 1): Promise<CharactersResponse> => {
-    const response = await fetch(`${BASE_URL}/character?page=${page}`);
+  getCharacters: async (query: string): Promise<CharactersResponse> => {
+    const response = await fetch(`${BASE_URL}/character?${query}`);
     if (!response.ok) {
       throw new Error('Failed to fetch characters');
     }
