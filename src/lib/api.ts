@@ -1,5 +1,8 @@
 import { Character, CharactersResponse, Episode, EpisodeResponse } from '@/types';
 
+// use this file for API fetching 
+// TODO: consider escaling in the future to multiple files based on domain e.g: one file for chars, one for episodes etc
+
 const BASE_URL = 'https://rickandmortyapi.com/api';
 
 export const api = {

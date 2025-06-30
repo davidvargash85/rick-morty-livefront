@@ -14,13 +14,6 @@ export default function Header() {
 
   return (
     <>
-      <a
-        href="#main-content"
-        className="absolute left-[-9999px] focus:left-0 focus:top-0 bg-blue-600 text-white px-4 py-2 z-50 focus:z-50 rounded-br-md transition-all focus:outline-none focus:ring-2 focus:ring-white"
-      >
-        Skip to main content
-      </a>
-
       <header
         className="bg-white dark:bg-gray-900 shadow-sm border-b border-gray-200 dark:border-gray-700"
         role="banner"

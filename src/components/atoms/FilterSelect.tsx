@@ -11,6 +11,9 @@ interface FilterSelectProps {
   id?: string;
 }
 
+// could evolve even more in the future ... 
+// instead of using the browser select build our own so we always display a consistent UX regardless of consumer
+
 export default function FilterSelect({
   label,
   value,

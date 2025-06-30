@@ -7,6 +7,9 @@ interface FilterProps {
   onFilter: (filters: Record<string, string>) => void;
 }
 
+// This is just a simple toolbar with filters 
+// in more mature apps the components will have better UX
+
 export default function Toolbar({ onFilter }: FilterProps) {
   const [name, setName] = useState("");
   const [status, setStatus] = useState("");
