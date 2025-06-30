@@ -4,6 +4,10 @@ import { useEpisodes } from "@/hooks/useEpisodes";
 import EpisodeCard from "@/components/molecules/EpisodeCard";
 import EpisodeCardSkeleton from "@/components/atoms/EpisodeCardSkeleton";
 
+// TODO: consider adding auto loading when scrolling at the bottom! that would be a neat trick 
+// the logic goes soemthing like ... add an interceptor observer that fires events on scroll ... 
+// use builting react-query to fetch the next page of episodes and merge into the current collection of episodes on response
+
 export default function EpisodeList() {
   const { data, isLoading, error } = useEpisodes();
 

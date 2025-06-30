@@ -10,12 +10,18 @@ import Toolbar from "@/components/molecules/Toolbar";
 export default function CharacterGrid() {
   const [currentPage, setCurrentPage] = useState(1);
   const [filters, setFilters] = useState<Record<string, string>>({});
+
+  // React Query does a nice trick at handling state of server requests!
   const { data, isLoading, error } = useCharacters(filters, currentPage);
 
   const handleFilterChange = (newFilters: Record<string, string>) => {
     setCurrentPage(1); // Reset to page 1 when filters change
     setFilters(newFilters);
   };
+
+
+  // I highly recommend the use of skeletons for UI loaders instead of spinners 
+  // gives a more natural feeling to the app while users wait
 
   return (
     <div className="space-y-8">

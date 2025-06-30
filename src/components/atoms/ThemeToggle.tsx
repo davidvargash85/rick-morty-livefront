@@ -18,6 +18,7 @@ export default function ThemeToggle() {
         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900
       `}
     >
+      {/* these emojis are not entirely accessible on older browsers, in real world I would consider SVGs given by my design team */}
       {isLight ? "🌙" : "☀️"}
     </button>
   );
